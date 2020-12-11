@@ -27,6 +27,7 @@ buildscript {
 }
 
 plugins {
+//  id "com.gradle.enterprise" version "3.5"
   id 'com.gradle.build-scan' version '1.9'
   id 'com.github.kt3k.coveralls' version '2.6.3'
   id 'jacoco'
@@ -50,11 +51,14 @@ allprojects {
   apply plugin: 'jacoco'
 
   repositories {
-    mavenCentral()
     mavenLocal()
+    mavenCentral()
 //  need this for rest.li/pegasus 28.* artifacts until they are in Maven Central:
     maven {
       url 'https://linkedin.bintray.com/maven'
+    }
+    maven{
+      url 'http://maven.aliyun.com/nexus/content/groups/public/'
     }
   }
 }
