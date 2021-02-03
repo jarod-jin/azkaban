@@ -18,6 +18,7 @@ package azkaban.utils;
 
 import java.io.File;
 import java.io.InputStream;
+import java.security.Security;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -178,6 +179,12 @@ public class EmailMessage {
     props.put("mail.smtp.connectiontimeout", _connectionTimeout);
     props.put("mail.smtp.starttls.enable", this._tls);
     props.put("mail.smtp.ssl.trust", this._mailHost);
+
+    Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+
+    props.setProperty("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+    props.setProperty("mail.smtp.socketFactory.fallback", "false");
+    props.setProperty("mail.smtp.socketFactory.port", "465");
 
     final JavaxMailSender sender = this.creator.createSender(props);
     final Message message = sender.createMessage();
