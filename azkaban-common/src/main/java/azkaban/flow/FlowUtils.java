@@ -62,7 +62,7 @@ public class FlowUtils {
         loadTime.toString("SSS"));
     props.put(CommonJobProperties.FLOW_START_TIMEZONE,
         loadTime.toString("ZZZZ"));
-    props.put(CommonJobProperties.FLOW_START_DAY_BEFORE, loadTime.toString("yyyy-MM-dd"));
+    props.put(CommonJobProperties.FLOW_START_ONE_DAY_AGO, loadTime.minusDays(1).toString("yyyy-MM-dd"));
 
     return props;
   }

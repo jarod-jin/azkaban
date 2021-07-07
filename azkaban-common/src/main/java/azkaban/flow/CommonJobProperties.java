@@ -178,7 +178,7 @@ public class CommonJobProperties {
   public static final String FLOW_START_TIMEZONE =
       "azkaban.flow.start.timezone";
 
-  public static final String FLOW_START_DAY_BEFORE = "azkaban.flow.start.day.before";
+  public static final String FLOW_START_ONE_DAY_AGO = "azkaban.flow.start.one.day.ago";
 
   public static final String JOBTYPE_CLUSTER_COMPONENTS_DEPENDENCIES = "jobtype.dependency.components";
   public static final String JOB_CLUSTER_COMPONENTS_DEPENDENCIES = "job.dependency.components";
